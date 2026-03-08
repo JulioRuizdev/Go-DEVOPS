@@ -4,3 +4,12 @@ node_modules/
 .DS_Store
 dist/
 coverage/
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfplan
+ 
+# Logs
+crash.log
