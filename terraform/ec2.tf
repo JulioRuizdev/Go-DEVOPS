@@ -81,7 +81,7 @@ resource "aws_security_group" "devops" {
 
   # Kong Admin API — SOLO para desarrollo, cerrar en producción
   ingress {
-    description = "Kong Admin API (cerrar en producción)"
+    description = "Kong Admin API"
     from_port   = 8001
     to_port     = 8001
     protocol    = "tcp"

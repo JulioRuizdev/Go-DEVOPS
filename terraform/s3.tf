@@ -60,7 +60,7 @@ resource "aws_s3_bucket_cors_configuration" "files" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "PUT", "POST", "DELETE", "HEAD"]
-    allowed_origins = ["*"]   # Cambiar a tu dominio en producción
+    allowed_origins = ["*"]
     expose_headers  = ["ETag"]
     max_age_seconds = 3600
   }
@@ -74,12 +74,16 @@ resource "aws_s3_bucket_lifecycle_configuration" "files" {
     id     = "archive-old-files"
     status = "Enabled"
 
+    # Filtro requerido — aplica a todos los objetos
+    filter {
+      prefix = ""
+    }
+
     transition {
       days          = 90
       storage_class = "GLACIER"
     }
 
-    # Limpiar versiones antiguas después de 30 días
     noncurrent_version_expiration {
       noncurrent_days = 30
     }
