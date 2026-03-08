@@ -4,7 +4,7 @@ variable "key_pair_name" {
 }
 
 variable "instance_type" {
-  default     = "t3.medium"
+  default     = "t3.micro"
   description = "Tipo de instancia EC2 (t3.medium = 4 GB RAM, 2 vCPU — mínimo recomendado para este stack)"
 }
 
